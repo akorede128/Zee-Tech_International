@@ -1,0 +1,72 @@
+.role-button {
+  border: 1px solid #dee2e6;
+  transition: border 0.15s ease;
+}
+
+.role-button:hover {
+  border: 1px solid #212529;
+}
+
+.login-button {
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-button:hover {
+  border-color: #dee2e6;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.95);
+}
+
+@media (max-width: 991.98px) {
+  .navbar.fixed-top {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .navbar-collapse form {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0 0 0.75rem;
+  }
+
+  .navbar-collapse .navbar-nav {
+    max-height: none !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar > .container-fluid {
+    gap: 0.5rem !important;
+  }
+
+  .navbar-collapse form {
+    gap: 0.5rem !important;
+  }
+
+  .navbar-collapse form > a {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+}
+.hero {
+    position: relative;
+    overflow: hidden;
+    background-color: #F2F5F9;
+    min-height: 500px;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-color: #eeece5;
+    left: -100px;
+    top: 130px;
+}
