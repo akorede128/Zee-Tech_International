@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import getPublicImageUrl from './publicImage';
+import getPublicImageUrl, { getPublicPageUrl } from './publicImage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
@@ -157,11 +157,11 @@ function Intructors() {
           <div className="d-flex align-items-center gap-2 py-1 flex-wrap">
             <button className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2" type="button" style={{ backgroundColor: '#f4f5f7', color: '#1d1d79' }}>
               <span aria-hidden="true">📚</span>
-              <a className="nav-link active fw-semibold" href="/courses">Courses</a>
+              <a className="nav-link active fw-semibold" href={getPublicPageUrl('/courses')}>Courses</a>
             </button>
             <button className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2 border-0" type="button" style={{ backgroundColor: '#1d1d79', color: 'white' }}>
               <span aria-hidden="true">🏅</span>
-              <a className="nav-link active fw-semibold" href="/intructors">Instructors</a>
+              <a className="nav-link active fw-semibold" href={getPublicPageUrl('/intructors')}>Instructors</a>
             </button>
           </div>
         </section>
@@ -203,7 +203,7 @@ function Intructors() {
             <section className="px-4 px-lg-5 py-5 mt-3 mx-lg-5 mb-5 rounded-5 text-center text-white" style={{ background: 'linear-gradient(135deg, #1d1d79 0%, #191970 100%)' }}>
                 <h3 className="fw-bold mb-3">Are you a tech expert?</h3>
                 <p className="text-secondary text-white-50 mb-4">Share your knowledge, build a student base, and earn doing what you love.</p>
-                <a className="btn btn-light rounded-pill px-4 py-2 fw-bold text-dark" href="/account">Apply to teach</a>
+                <a className="btn btn-light rounded-pill px-4 py-2 fw-bold text-dark" href={getPublicPageUrl('/account')}>Apply to teach</a>
             </section>
         </div>
       </main>

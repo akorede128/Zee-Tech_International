@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Header from './components/Header';
@@ -9,11 +9,23 @@ import LoginPage from './LoginPage';
 import AccountPage from './AccountPage';
 import Courses from './Courses';
 import Intructors from './Intructors';
-import getPublicImageUrl from './publicImage';
+import getPublicImageUrl, { getPublicPageUrl } from './publicImage';
 
  
 function App() {
   const [courseFilter, setCourseFilter] = useState('all');
+  const [currentPage, setCurrentPage] = useState(() => {
+    const route = window.location.hash.slice(1);
+    return route.startsWith('/') ? route : '/';
+  });
+  useEffect(() => {
+    const handleHashChange = () => {
+      const route = window.location.hash.slice(1);
+      if (route.startsWith('/')) setCurrentPage(route);
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
   const matchesCourseFilter = ({ featured = false, free = false, beginner = false }) => {
     if (courseFilter === 'featured') return featured;
     if (courseFilter === 'free') return free;
@@ -21,19 +33,19 @@ function App() {
     return true;
   };
 
-  if (window.location.pathname === '/login') {
+  if (currentPage === '/login') {
     return <LoginPage />;
   }
 
-  if (window.location.pathname === '/account' || window.location.pathname === '/signup') {
+  if (currentPage === '/account' || currentPage === '/signup') {
     return <AccountPage />;
   }
 
-  if (window.location.pathname === '/courses') {
+  if (currentPage === '/courses') {
     return <Courses />;
   }
 
-  if (window.location.pathname === '/intructors') {
+  if (currentPage === '/intructors') {
     return <Intructors />;
   }
 
@@ -55,10 +67,10 @@ function App() {
                     <p className='text-secondary lh-lg hero-description'>The premier EdTech platform for children, teens, parents, and professionals. Learn cutting-edge tech skills through expert-led courses, personalised AI tutoring, and hands-on projects.</p>
                     <div className='d-flex flex-wrap gap-3 mt-4'>
                       <button className='btn btn-warning px-4 py-3 rounded-3 fw-semibold'>
-                        <a className="nav-link active fw-semibold" aria-current="page" href="/account">Start Learning Free &rarr;</a>
+                        <a className="nav-link active fw-semibold" aria-current="page" href={getPublicPageUrl('/account')}>Start Learning Free &rarr;</a>
                       </button>
                       <button className='btn btn-light border px-4 py-3 rounded-3 fw-semibold'>
-                        <a className="nav-link active fw-semibold" aria-current="page" href="/courses">Explore 183+ Courses</a>
+                        <a className="nav-link active fw-semibold" aria-current="page" href={getPublicPageUrl('/courses')}>Explore 183+ Courses</a>
                       </button>
                     </div>
                     <div className='d-flex flex-wrap gap-3 gap-lg-4 mt-5 text-secondary small'>
@@ -185,7 +197,7 @@ function App() {
                     <span className='d-block text-uppercase small fw-semibold mb-2' style={{color: "#191970"}}>Categories</span>
                     <h2 className='fw-bold text-dark mb-0'>Explore every field of technology</h2>
                   </div>
-                  <a className='view-all-link text-secondary text-decoration-none small mb-1 mt-3 mt-md-0' href='/courses'>View all &rsaquo;</a>
+                  <a className='view-all-link text-secondary text-decoration-none small mb-1 mt-3 mt-md-0' href={getPublicPageUrl('/courses')}>View all &rsaquo;</a>
                 </div>
                 <div id='categories' className='d-flex gap-3 m-3 mb-4 category-strip'>
                   <div className='category-card border border-secondary-subtle rounded-4 bg-white text-center d-flex flex-column align-items-center justify-content-center flex-shrink-0 shadow-sm' style={{width: '145px', height: '110px'}}>
@@ -550,7 +562,7 @@ function App() {
                   </div>
                 </div>
                 <div className='py-5 pb-5 d-flex justify-content-center'>
-                  <button className='btn btn-white btn-lg px-4 d-flex py-2 mb-5 rounded-4 cta-primary-button role-button'><a className="nav-link active" aria-current="page" href="/courses">Browse All 183 Courses</a><i className="bi bi-chevron-right"></i></button>
+                  <button className='btn btn-white btn-lg px-4 d-flex py-2 mb-5 rounded-4 cta-primary-button role-button'><a className="nav-link active" aria-current="page" href={getPublicPageUrl('/courses')}>Browse All 183 Courses</a><i className="bi bi-chevron-right"></i></button>
                 </div>
               </div>
               {/* fifth flip end */}
@@ -574,7 +586,7 @@ function App() {
                     </ul>
                     <div className='d-grid'>
                       <button className='btn text-light fw-semibold rounded-3' style={{backgroundColor: "#040446"}} type='button'>
-                        <a className="nav-link active" aria-current="page" href="/account">Start Learning</a>
+                        <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/account')}>Start Learning</a>
                       </button>
                     </div>
                   </div>
@@ -593,7 +605,7 @@ function App() {
                     </ul>
                     <div className='d-grid'>
                       <button className='btn text-dark fw-semibold rounded-3' style={{backgroundColor: "#e5b521"}} type='button'>
-                        <a className="nav-link active" aria-current="page" href="/account">Manage Learning</a>
+                        <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/account')}>Manage Learning</a>
                       </button>
                     </div>
                   </div>
@@ -612,7 +624,7 @@ function App() {
                     </ul>
                     <div className='d-grid'>
                       <button className='btn text-dark fw-semibold rounded-3' style={{backgroundColor: "#edf2f8"}} type='button'>
-                        <a className="nav-link active" aria-current="page" href="/account">Start Teaching</a>
+                        <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/account')}>Start Teaching</a>
                       </button>
                     </div>
                   </div>
@@ -626,10 +638,10 @@ function App() {
                     <span className='d-block text-uppercase small fw-semibold mb-2' style={{color: "#191970"}}>Instructors</span>
                     <h2 className='fw-bold text-dark mb-0'>Learn from world-class experts</h2>
                   </div>
-                  <a className='view-all-link text-secondary text-decoration-none fs-6 mb-1 mt-3 mt-md-0' href='/intructors'>See all &rsaquo;</a>
+                  <a className='view-all-link text-secondary text-decoration-none fs-6 mb-1 mt-3 mt-md-0' href={getPublicPageUrl('/intructors')}>See all &rsaquo;</a>
                 </div>
                 <div className='d-flex gap-3 justify-content-center my-4 mt-3 featured-instructors-grid'>
-                  <a className="nav-link active" aria-current="page" href="/intructors">
+                  <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/intructors')}>
                     <div className='p-3 flex-shrink-0 shadow-sm category-card rounded-4 border border-secondary-subtle' style={{cursor: "pointer", fontSize: "14px"}}>
                     <div className='d-flex gap-3'>
                       <div className='position-relative flex-shrink-0' style={{width: "60px", height: "60px"}}>
@@ -665,7 +677,7 @@ function App() {
                     </div>
                   </div>
                   </a>
-                  <a className="nav-link active" aria-current="page" href="/intructors">
+                  <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/intructors')}>
                       <div className='p-3 flex-shrink-0 shadow-sm category-card rounded-4 border border-secondary-subtle' style={{cursor: "pointer", fontSize: "14px"}}>
                     <div className='d-flex gap-3'>
                       <div className='position-relative flex-shrink-0' style={{width: "60px", height: "60px"}}>
@@ -700,7 +712,7 @@ function App() {
                     </div>
                   </div>
                   </a>
-                  <a className="nav-link active" aria-current="page" href="/intructors">
+                  <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/intructors')}>
                       <div className='p-3 flex-shrink-0 shadow-sm category-card rounded-4 border border-secondary-subtle' style={{cursor: "pointer", fontSize: "14px"}}>
                     <div className='d-flex gap-3'>
                       <div className='position-relative flex-shrink-0' style={{width: "60px", height: "60px"}}>
@@ -801,10 +813,10 @@ function App() {
                   </p>
                   <div className='d-flex justify-content-center gap-3 flex-wrap'>
                     <button className='btn btn-warning btn-lg px-4 py-2 rounded-3 fw-semibold cta-primary-button'>
-                      <a className="nav-link active" aria-current="page" href="/account">Create Free Account &rarr;</a>
+                      <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/account')}>Create Free Account &rarr;</a>
                     </button>
                     <button className='btn btn-outline-light text-white bg-white bg-opacity-10 border-white border-opacity-25 btn-lg px-4 py-2 rounded-3 fw-semibold'>
-                      <a className="nav-link active" aria-current="page" href="/courses">Browse Courses</a>
+                      <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/courses')}>Browse Courses</a>
                     </button>
                   </div>
                   <p className='small text-white text-opacity-50 mt-4 mb-0'>Trusted by families in 42 countries · ISO-certified security · GDPR compliant</p>

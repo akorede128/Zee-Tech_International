@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import getPublicImageUrl from './publicImage';
+import getPublicImageUrl, { getPublicPageUrl } from './publicImage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
@@ -245,11 +245,11 @@ function Courses() {
             <div className="d-flex align-items-center gap-2 py-1">
                 <button className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2" type="button" style={{backgroundColor: "#1e1d79", color: "white"}}>
                     <span aria-hidden="true">📚</span>
-                    <a className="nav-link active fw-semibold" aria-current="page" href="/courses">Courses</a>
+                    <a className="nav-link active fw-semibold" aria-current="page" href={getPublicPageUrl('/courses')}>Courses</a>
                 </button>
                 <button className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2 text-dark border-0" type="button" style={{backgroundColor: "#f4f5f7",}}>
                     <span aria-hidden="true">🏅</span>
-                    <a className="nav-link active fw-semibold" aria-current="page" href="/intructors">Intructors</a>
+                    <a className="nav-link active fw-semibold" aria-current="page" href={getPublicPageUrl('/intructors')}>Intructors</a>
                 </button>
             </div>
         </section>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getPublicPageUrl } from './publicImage';
 
 const roles = [
 	{ value: 'student', icon: '🎓', title: 'TechStar (Student)', description: 'Browse and enrol in courses, use AI Tutor, earn achievements.' },
@@ -17,7 +18,7 @@ const AccountPage = () => {
 	return (
 		<main className='account-page'>
 			<section className='account-showcase'>
-				<a className='account-brand text-decoration-none' href='/'>
+				<a className='account-brand text-decoration-none' href={getPublicPageUrl()}>
 					<span className='account-brand-mark'>Z</span>
 					<span>
 						<strong>Zee Tech</strong>
@@ -86,7 +87,7 @@ const AccountPage = () => {
 						<button className='btn account-submit' type='submit'>Create Account — It's Free</button>
 					</form>
 
-					<p className='account-signin'>Already have an account? <a href='/login'>Sign in</a></p>
+					<p className='account-signin'>Already have an account? <a href={getPublicPageUrl('/login')}>Sign in</a></p>
 				</div>
 			</section>
 		</main>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import { getPublicPageUrl } from './publicImage';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -12,7 +13,7 @@ const LoginPage = () => {
   return (
     <main className='login-page'>
       <section className='login-showcase'>
-        <a href='/' className='login-brand text-decoration-none'>
+        <a href={getPublicPageUrl()} className='login-brand text-decoration-none'>
           <span className='login-brand-mark'>Z</span>
           <span><strong>Zee Tech</strong><small>LEARNING</small></span>
         </a>
@@ -68,7 +69,7 @@ const LoginPage = () => {
             <button type='button'><b className='google-icon'>G</b> Google</button>
             <button type='button'><b className='facebook-icon'>f</b> Facebook</button>
           </div>
-          <p className='signup-prompt'>Don't have an account? <a href='/account'>Sign up free</a></p>
+          <p className='signup-prompt'>Don't have an account? <a href={getPublicPageUrl('/account')}>Sign up free</a></p>
           <div className='demo-access'>
             <span>Quick demo access:</span>
             <a href='#student'>→ Student</a><a href='#parent'>→ Parent</a><a href='#instructor'>→ Instructor</a><a href='#admin'>→ Admin</a>

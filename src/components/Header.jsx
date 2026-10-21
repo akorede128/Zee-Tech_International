@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Header.css';
+import { getPublicPageUrl } from '../publicImage';
 
 const Header = () => {
   const [selectedRole, setSelectedRole] = useState('');
@@ -11,9 +12,9 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg bg-body bg-opacity-100 border-bottom border-dark border-opacity-25 fixed-top px-5">
         <div className="container-fluid gap-3">
             <div className={"p-2 rounded-3 fs-6"} style={{width: "40px", height: "40px", alignItems: "center", justifyContent: "center", display: 'flex', backgroundColor: "#cc9a26",}}>
-              <a className="nav-link active fw-semibold" aria-current="page" href="/app">Z</a>
+              <a className="nav-link active fw-semibold" aria-current="page" href={getPublicPageUrl()}>Z</a>
             </div>
-            <a className="navbar-brand fs-6" href="/app">
+            <a className="navbar-brand fs-6" href={getPublicPageUrl()}>
               <span className='rounded-3 fw-bolder' style={{display: "block", margin: 0, padding: 0, lineHeight: 1}}>Zee Tech</span> 
               <span className='rounded-3 fw-bolder text-secondary' style={{display: "block", margin: 0, padding: 0, lineHeight: 1}}>LEARNING</span>
             </a>
@@ -31,10 +32,10 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarScroll">
           <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{ '--bs-scroll-height': '100px' }}>
             <li className="nav-item">
-              <a className="nav-link active text-secondary fw-semibold" aria-current="page" href="/courses">Courses</a>
+              <a className="nav-link active text-secondary fw-semibold" aria-current="page" href={getPublicPageUrl('/courses')}>Courses</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active text-secondary fw-semibold" aria-current="page" href="/intructors">Instructors</a>
+              <a className="nav-link active text-secondary fw-semibold" aria-current="page" href={getPublicPageUrl('/intructors')}>Instructors</a>
             </li>
             <li className="nav-item">
               <a className="nav-link active text-secondary fw-semibold" aria-current="page" href="#">About</a>
@@ -79,9 +80,9 @@ const Header = () => {
             </ul>
             </div>
             
-            <a className="btn btn-white rounded-2 login-button fw-semibold text-secondary" href="/login">Log In</a>
+            <a className="btn btn-white rounded-2 login-button fw-semibold text-secondary" href={getPublicPageUrl('/login')}>Log In</a>
 
-            <a className='btn rounded-3 fw-semibold text-white' style={{backgroundColor: "#211f7a", border: "none", padding: "8px 18px"}} href="/account">Get Started</a>
+            <a className='btn rounded-3 fw-semibold text-white' style={{backgroundColor: "#211f7a", border: "none", padding: "8px 18px"}} href={getPublicPageUrl('/account')}>Get Started</a>
           </form>
         </div>
         </div>
