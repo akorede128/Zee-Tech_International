@@ -35,13 +35,13 @@ const Header = () => {
               <a className="nav-link active text-secondary fw-semibold" aria-current="page" href={getPublicPageUrl('/courses')}>Courses</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active text-secondary fw-semibold" aria-current="page" href={getPublicPageUrl('/intructors')}>Instructors</a>
+              <a className="nav-link active text-secondary fw-semibold" aria-current="page" href={getPublicPageUrl('/instructors')}>Instructors</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active text-secondary fw-semibold" aria-current="page" href="#">About</a>
+              <a className="nav-link active text-secondary fw-semibold" href={getPublicPageUrl()}>About</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active text-secondary fw-semibold" aria-current="page" href="#">Pricing</a>
+              <a className="nav-link active text-secondary fw-semibold" href={getPublicPageUrl('/courses')}>Pricing</a>
             </li>
           </ul>
           <form className="d-flex gap-3" role="search">

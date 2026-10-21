@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,7 +7,7 @@ import Footer from './components/Footer';
 import LoginPage from './LoginPage';
 import AccountPage from './AccountPage';
 import Courses from './Courses';
-import Intructors from './Intructors';
+import Instructors from './Instructors';
 import getPublicImageUrl, { getPublicPageUrl } from './publicImage';
 
  
@@ -45,8 +44,8 @@ function App() {
     return <Courses />;
   }
 
-  if (currentPage === '/intructors') {
-    return <Intructors />;
+  if (currentPage === '/instructors' || currentPage === '/intructors') {
+    return <Instructors />;
   }
 
   return (
@@ -66,12 +65,8 @@ function App() {
                     <p className='lead text-secondary mb-2'>Code. Create. Impact.</p>
                     <p className='text-secondary lh-lg hero-description'>The premier EdTech platform for children, teens, parents, and professionals. Learn cutting-edge tech skills through expert-led courses, personalised AI tutoring, and hands-on projects.</p>
                     <div className='d-flex flex-wrap gap-3 mt-4'>
-                      <button className='btn btn-warning px-4 py-3 rounded-3 fw-semibold'>
-                        <a className="nav-link active fw-semibold" aria-current="page" href={getPublicPageUrl('/account')}>Start Learning Free &rarr;</a>
-                      </button>
-                      <button className='btn btn-light border px-4 py-3 rounded-3 fw-semibold'>
-                        <a className="nav-link active fw-semibold" aria-current="page" href={getPublicPageUrl('/courses')}>Explore 183+ Courses</a>
-                      </button>
+                      <a className='btn btn-warning px-4 py-3 rounded-3 fw-semibold' href={getPublicPageUrl('/account')}>Start Learning Free &rarr;</a>
+                      <a className='btn btn-light border px-4 py-3 rounded-3 fw-semibold' href={getPublicPageUrl('/courses')}>Explore 183+ Courses</a>
                     </div>
                     <div className='d-flex flex-wrap gap-3 gap-lg-4 mt-5 text-secondary small'>
                       <span>&#10003; No credit card required</span>
@@ -287,7 +282,7 @@ function App() {
                         </div>
                         <div className='d-flex mt-2 justify-content-between justify-content-center text-secondary' style={{fontSize: "14px"}}>
                           <p><span className='text-dark'>⭐ 4.9</span> (612)</p>
-                          <p><i class="bi bi-people-fill"></i> 8,400</p>
+                          <p><i className="bi bi-people-fill"></i> 8,400</p>
                         </div>
                         <hr/>
                         <div className='d-flex gap-2 align-items-center text-secondary' style={{fontSize: "14px"}}>
@@ -325,7 +320,7 @@ function App() {
                         </div>
                         <div className='d-flex mt-2 justify-content-between justify-content-center text-secondary' style={{fontSize: "14px"}}>
                           <p><span className='text-dark'>⭐ 4.8</span> (487)</p>
-                          <p><i class="bi bi-people-fill"></i> 6,200</p>
+                          <p><i className="bi bi-people-fill"></i> 6,200</p>
                         </div>
                         <hr/>
                         <div className='d-flex gap-2 align-items-center text-secondary' style={{fontSize: "14px"}}>
@@ -363,7 +358,7 @@ function App() {
                         </div>
                         <div className='d-flex mt-2 justify-content-between justify-content-center text-secondary' style={{fontSize: "14px"}}>
                           <p><span className='text-dark'>⭐ 4.9</span> (823)</p>
-                          <p><i class="bi bi-people-fill"></i> 11,200</p>
+                          <p><i className="bi bi-people-fill"></i> 11,200</p>
                         </div>
                         <hr/>
                         <div className='d-flex gap-2 align-items-center text-secondary' style={{fontSize: "14px"}}>
@@ -400,7 +395,7 @@ function App() {
                         </div>
                         <div className='d-flex mt-2 justify-content-between justify-content-center text-secondary' style={{fontSize: "14px"}}>
                           <p><span className='text-dark'>⭐ 4.9</span> (612)</p>
-                          <p><i class="bi bi-people-fill"></i> 8,400</p>
+                          <p><i className="bi bi-people-fill"></i> 8,400</p>
                         </div>
                         <hr/>
                         <div className='d-flex gap-2 align-items-center text-secondary' style={{fontSize: "14px"}}>
@@ -438,7 +433,7 @@ function App() {
                         </div>
                         <div className='d-flex mt-2 justify-content-between justify-content-center text-secondary' style={{fontSize: "14px"}}>
                           <p><span className='text-dark'>⭐ 4.8</span> (267)</p>
-                          <p><i class="bi bi-people-fill"></i> 3,900</p>
+                          <p><i className="bi bi-people-fill"></i> 3,900</p>
                         </div>
                         <hr/>
                         <div className='d-flex gap-2 align-items-center text-secondary' style={{fontSize: "14px"}}>
@@ -475,7 +470,7 @@ function App() {
                         </div>
                         <div className='d-flex mt-2 justify-content-between justify-content-center text-secondary' style={{fontSize: "14px"}}>
                           <p><span className='text-dark'>⭐ 4.6</span> (198)</p>
-                          <p><i class="bi bi-people-fill"></i> 2,800</p>
+                          <p><i className="bi bi-people-fill"></i> 2,800</p>
                         </div>
                         <hr/>
                         <div className='d-flex gap-2 align-items-center text-secondary' style={{fontSize: "14px"}}>
@@ -512,7 +507,7 @@ function App() {
                         </div>
                         <div className='d-flex mt-2 justify-content-between justify-content-center text-secondary' style={{fontSize: "14px"}}>
                           <p><span className='text-dark'>⭐ 4.9</span> (742)</p>
-                          <p><i class="bi bi-people-fill"></i> 14,200</p>
+                          <p><i className="bi bi-people-fill"></i> 14,200</p>
                         </div>
                         <hr/>
                         <div className='d-flex gap-2 align-items-center text-secondary' style={{fontSize: "14px"}}>
@@ -549,7 +544,7 @@ function App() {
                         </div>
                         <div className='d-flex mt-2 justify-content-between justify-content-center text-secondary' style={{fontSize: "14px"}}>
                           <p><span className='text-dark'>⭐ 4.7</span> (321)</p>
-                          <p><i class="bi bi-people-fill"></i> 4,500</p>
+                          <p><i className="bi bi-people-fill"></i> 4,500</p>
                         </div>
                         <hr/>
                         <div className='d-flex gap-2 align-items-center text-secondary' style={{fontSize: "14px"}}>
@@ -562,7 +557,7 @@ function App() {
                   </div>
                 </div>
                 <div className='py-5 pb-5 d-flex justify-content-center'>
-                  <button className='btn btn-white btn-lg px-4 d-flex py-2 mb-5 rounded-4 cta-primary-button role-button'><a className="nav-link active" aria-current="page" href={getPublicPageUrl('/courses')}>Browse All 183 Courses</a><i className="bi bi-chevron-right"></i></button>
+                  <a className='btn btn-white btn-lg px-4 d-flex align-items-center gap-2 py-2 mb-5 rounded-4 cta-primary-button role-button' href={getPublicPageUrl('/courses')}>Browse All 183 Courses<i className="bi bi-chevron-right" aria-hidden="true"></i></a>
                 </div>
               </div>
               {/* fifth flip end */}
@@ -638,10 +633,10 @@ function App() {
                     <span className='d-block text-uppercase small fw-semibold mb-2' style={{color: "#191970"}}>Instructors</span>
                     <h2 className='fw-bold text-dark mb-0'>Learn from world-class experts</h2>
                   </div>
-                  <a className='view-all-link text-secondary text-decoration-none fs-6 mb-1 mt-3 mt-md-0' href={getPublicPageUrl('/intructors')}>See all &rsaquo;</a>
+                  <a className='view-all-link text-secondary text-decoration-none fs-6 mb-1 mt-3 mt-md-0' href={getPublicPageUrl('/instructors')}>See all &rsaquo;</a>
                 </div>
                 <div className='d-flex gap-3 justify-content-center my-4 mt-3 featured-instructors-grid'>
-                  <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/intructors')}>
+                  <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/instructors')}>
                     <div className='p-3 flex-shrink-0 shadow-sm category-card rounded-4 border border-secondary-subtle' style={{cursor: "pointer", fontSize: "14px"}}>
                     <div className='d-flex gap-3'>
                       <div className='position-relative flex-shrink-0' style={{width: "60px", height: "60px"}}>
@@ -677,7 +672,7 @@ function App() {
                     </div>
                   </div>
                   </a>
-                  <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/intructors')}>
+                  <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/instructors')}>
                       <div className='p-3 flex-shrink-0 shadow-sm category-card rounded-4 border border-secondary-subtle' style={{cursor: "pointer", fontSize: "14px"}}>
                     <div className='d-flex gap-3'>
                       <div className='position-relative flex-shrink-0' style={{width: "60px", height: "60px"}}>
@@ -712,7 +707,7 @@ function App() {
                     </div>
                   </div>
                   </a>
-                  <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/intructors')}>
+                  <a className="nav-link active" aria-current="page" href={getPublicPageUrl('/instructors')}>
                       <div className='p-3 flex-shrink-0 shadow-sm category-card rounded-4 border border-secondary-subtle' style={{cursor: "pointer", fontSize: "14px"}}>
                     <div className='d-flex gap-3'>
                       <div className='position-relative flex-shrink-0' style={{width: "60px", height: "60px"}}>

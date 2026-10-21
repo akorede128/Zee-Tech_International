@@ -220,16 +220,29 @@ function CourseCard({ course }) {
 
 function Courses() {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedLevel, setSelectedLevel] = useState('All Levels');
+  const [selectedPrice, setSelectedPrice] = useState('Any Price');
+  const [sortOrder, setSortOrder] = useState('Most Popular');
   const [search, setSearch] = useState('');
 
   const visibleCourses = useMemo(() => {
-    return courseData.filter((course) => {
+    const filteredCourses = courseData.filter((course) => {
       const matchesCategory = selectedCategory === 'All' || course.category === selectedCategory;
       const haystack = `${course.title} ${course.category} ${course.instructor}`.toLowerCase();
-      const matchesSearch = haystack.includes(search.toLowerCase());
-      return matchesCategory && matchesSearch;
+      const matchesSearch = haystack.includes(search.trim().toLowerCase());
+      const matchesLevel = selectedLevel === 'All Levels' || course.level === selectedLevel;
+      const matchesPrice = selectedPrice === 'Any Price'
+        || (selectedPrice === 'Free' ? course.price === 0 : course.price > 0);
+      return matchesCategory && matchesSearch && matchesLevel && matchesPrice;
     });
-  }, [selectedCategory, search]);
+    if (sortOrder === 'Most Popular') {
+      return filteredCourses.sort((a, b) => b.learners - a.learners);
+    }
+    if (sortOrder === 'Price: Low to High') {
+      return filteredCourses.sort((a, b) => a.price - b.price);
+    }
+    return filteredCourses.sort((a, b) => b.price - a.price);
+  }, [selectedCategory, selectedLevel, selectedPrice, sortOrder, search]);
 
   return (
     <div className="courses-page">
@@ -239,18 +252,18 @@ function Courses() {
         <section className="courses-header pt-4 px-4 px-lg-5 mt-5 mb-5">
             <div className="courses-heading-block">
                 <h1 className="h4 fw-bold fs-1 mb-1 lh-1 text-dark">Explore Our Course Library</h1>
-                <p className="text-secondary mb-2 small fs-6">8 expert-led courses across 8 technology disciplines.</p>
+                <p className="text-secondary mb-2 small fs-6">8 expert-led courses across 7 technology disciplines.</p>
             </div>
 
             <div className="d-flex align-items-center gap-2 py-1">
-                <button className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2" type="button" style={{backgroundColor: "#1e1d79", color: "white"}}>
+                <a className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2 text-decoration-none" href={getPublicPageUrl('/courses')} style={{backgroundColor: "#1e1d79", color: "white"}}>
                     <span aria-hidden="true">📚</span>
-                    <a className="nav-link active fw-semibold" aria-current="page" href={getPublicPageUrl('/courses')}>Courses</a>
-                </button>
-                <button className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2 text-dark border-0" type="button" style={{backgroundColor: "#f4f5f7",}}>
+                    Courses
+                </a>
+                <a className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2 text-dark border-0 text-decoration-none" href={getPublicPageUrl('/instructors')} style={{backgroundColor: "#f4f5f7",}}>
                     <span aria-hidden="true">🏅</span>
-                    <a className="nav-link active fw-semibold" aria-current="page" href={getPublicPageUrl('/intructors')}>Intructors</a>
-                </button>
+                    Instructors
+                </a>
             </div>
         </section>
 
@@ -270,10 +283,22 @@ function Courses() {
                     </div>
 
                     <div className="courses-filter-group">
-                        <button className="courses-filter-btn btn btn-sm px-3 py-2 fw-medium" type="button">All Categories</button>
-                        <button className="courses-filter-btn btn btn-sm px-3 py-2 fw-medium" type="button">All Levels</button>
-                        <button className="courses-filter-btn btn btn-sm px-3 py-2 fw-medium" type="button">Any Price</button>
-                        <button className="courses-filter-btn btn btn-sm px-3 py-2 fw-medium" type="button">Most Popular</button>
+                        <select className="courses-filter-btn btn btn-sm px-3 py-2 fw-medium" aria-label="Filter by level" value={selectedLevel} onChange={(event) => setSelectedLevel(event.target.value)}>
+                          <option>All Levels</option>
+                          <option>Beginner</option>
+                          <option>Intermediate</option>
+                          <option>Advanced</option>
+                        </select>
+                        <select className="courses-filter-btn btn btn-sm px-3 py-2 fw-medium" aria-label="Filter by price" value={selectedPrice} onChange={(event) => setSelectedPrice(event.target.value)}>
+                          <option>Any Price</option>
+                          <option>Free</option>
+                          <option>Paid</option>
+                        </select>
+                        <select className="courses-filter-btn btn btn-sm px-3 py-2 fw-medium" aria-label="Sort courses" value={sortOrder} onChange={(event) => setSortOrder(event.target.value)}>
+                          <option>Most Popular</option>
+                          <option>Price: Low to High</option>
+                          <option>Price: High to Low</option>
+                        </select>
                     </div>
                 </section>
 
@@ -296,11 +321,31 @@ function Courses() {
  
                 <p className="courses-result-label">Showing {visibleCourses.length} course{visibleCourses.length === 1 ? '' : 's'}</p>
 
-                <section className="courses-grid">
-                {visibleCourses.map((course) => (
-                    <CourseCard key={course.id} course={course} />
-                ))}
-                </section>
+                {visibleCourses.length > 0 ? (
+                  <section className="courses-grid">
+                    {visibleCourses.map((course) => (
+                      <CourseCard key={course.id} course={course} />
+                    ))}
+                  </section>
+                ) : (
+                  <div className="card rounded-4 text-center py-5 border-0 bg-white">
+                    <h2 className="h5 fw-bold text-dark">No courses found</h2>
+                    <p className="text-secondary">Try changing your search or filters.</p>
+                    <button
+                      className="btn btn-outline-dark rounded-pill align-self-center"
+                      type="button"
+                      onClick={() => {
+                        setSearch('');
+                        setSelectedCategory('All');
+                        setSelectedLevel('All Levels');
+                        setSelectedPrice('Any Price');
+                        setSortOrder('Most Popular');
+                      }}
+                    >
+                      Clear filters
+                    </button>
+                  </div>
+                )}
             </div>
         </div>
         <Footer />

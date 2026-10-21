@@ -129,7 +129,7 @@ function InstructorCard({ instructor }) {
     );
 }
 
-function Intructors() {
+function Instructors() {
   const [search, setSearch] = useState('');
 
   const visibleInstructors = useMemo(() => {
@@ -155,14 +155,14 @@ function Intructors() {
           </div>
 
           <div className="d-flex align-items-center gap-2 py-1 flex-wrap">
-            <button className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2" type="button" style={{ backgroundColor: '#f4f5f7', color: '#1d1d79' }}>
+            <a className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2 text-decoration-none" href={getPublicPageUrl('/courses')} style={{ backgroundColor: '#f4f5f7', color: '#1d1d79' }}>
               <span aria-hidden="true">📚</span>
-              <a className="nav-link active fw-semibold" href={getPublicPageUrl('/courses')}>Courses</a>
-            </button>
-            <button className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2 border-0" type="button" style={{ backgroundColor: '#1d1d79', color: 'white' }}>
+              Courses
+            </a>
+            <a className="btn btn-sm rounded-3 px-3 py-2 fw-semibold d-flex align-items-center gap-2 border-0 text-decoration-none" href={getPublicPageUrl('/instructors')} style={{ backgroundColor: '#1d1d79', color: 'white' }}>
               <span aria-hidden="true">🏅</span>
-              <a className="nav-link active fw-semibold" href={getPublicPageUrl('/intructors')}>Instructors</a>
-            </button>
+              Instructors
+            </a>
           </div>
         </section>
 
@@ -213,4 +213,4 @@ function Intructors() {
   );
 }
 
-export default Intructors;
+export default Instructors;
