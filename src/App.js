@@ -9,6 +9,7 @@ import LoginPage from './LoginPage';
 import AccountPage from './AccountPage';
 import Courses from './Courses';
 import Intructors from './Intructors';
+import getPublicImageUrl from './publicImage';
 
  
 function App() {
@@ -71,11 +72,11 @@ function App() {
                   <div className='col-12 col-xl-6 hero-visuals'>
                     <div className='card border-0 shadow rounded-4 course-card'>
                       <div className='card-body p-3'>
-                        <img src='/images/hold-python.avif' className='card-img-top rounded-3' alt='Python course' />
+                        <img src={getPublicImageUrl('hold-python.avif')} className='card-img-top rounded-3' alt='Python course' />
                         <small className='d-block fw-semibold mt-3' style={{color: "#191970"}}>Programming . Beginner</small>
                         <h2 className='h6 fw-bold mt-2'>Python for Young Coders</h2>
                         <div className='d-flex align-items-center gap-2 mt-3 text-secondary small'>
-                          <img src='/images/Dr. Sarah Chen.avif' className='rounded-circle instructor-image' alt='Dr. Sarah Chen' />
+                          <img src={getPublicImageUrl('Dr. Sarah Chen.avif')} className='rounded-circle instructor-image' alt='Dr. Sarah Chen' />
                           <span>Dr. Sarah Chen</span><span className='text-primary'>&#10003;</span>
                         </div>
                         <div className='progress mt-3' role='progressbar' aria-label='Course progress' aria-valuenow='68' aria-valuemin='0' aria-valuemax='100'>
@@ -96,9 +97,9 @@ function App() {
                     <div className='card border-0 shadow rounded-3 enrollment-card'>
                       <div className='card-body d-flex align-items-center gap-2 p-3 small'>
                         <div className='d-flex avatar-stack'>
-                          <img src='/images/Amara Okonkwo.avif' className='rounded-circle' alt='' />
-                          <img src='/images/Kofi Mensah.avif' className='rounded-circle' alt='' />
-                          <img src='/images/Blessing Adeyemi.avif' className='rounded-circle' alt='' />
+                          <img src={getPublicImageUrl('Amara Okonkwo.avif')} className='rounded-circle' alt='' />
+                          <img src={getPublicImageUrl('Kofi Mensah.avif')} className='rounded-circle' alt='' />
+                          <img src={getPublicImageUrl('Blessing Adeyemi.avif')} className='rounded-circle' alt='' />
                         </div>
                         <div><strong>8,400+ students enrolled</strong><div className='text-warning mt-1'>★★★★★ <span className='text-secondary'>4.9</span></div></div>
                       </div>
@@ -249,7 +250,7 @@ function App() {
                   <div className='d-flex gap-3 justify-content-center align-items-center homepage-course-grid'>
                     <div hidden={!matchesCourseFilter({ featured: true, beginner: true })} className="card rounded-4 course-card-item flex-shrink-0 shadow-sm category-card" style={{ width: '19rem', cursor: "pointer",}}>
                       <div className="position-relative overflow-hidden rounded-top-4">
-                        <img src="/images/hold-python.avif" className="card-img-top course-card-thumb" alt="Python course" />
+                        <img src={getPublicImageUrl('hold-python.avif')} className="card-img-top course-card-thumb" alt="Python course" />
                         <div className="position-absolute top-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style={{ zIndex: 2 }}>
                           <div className='d-flex gap-4 align-items-center justify-content-center'>
                             <span className="badge bg-warning text-dark px-2 py-1 rounded-pill fw-semibold align-items-center" style={{ fontSize: '12px', color: "#191970"}}>Featured</span>
@@ -266,7 +267,7 @@ function App() {
                         </p>
 
                         <div className='d-flex gap-2 align-items-center text-secondary'>
-                          <img src="/images/Dr. Sarah Chen.avif" className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
+                          <img src={getPublicImageUrl('Dr. Sarah Chen.avif')} className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
                           <span style={{fontSize: "14px"}}>Dr, Sarah Chen</span>
                           <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' className='bi bi-patch-check-fill text-primary' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                             <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
@@ -287,7 +288,7 @@ function App() {
 
                     <div hidden={!matchesCourseFilter({ featured: true, beginner: true })} className="card rounded-4 course-card-item flex-shrink-0 shadow-sm category-card" style={{ width: '19rem', cursor: "pointer",}}>
                       <div className="position-relative overflow-hidden rounded-top-4">
-                        <img src="/images/Web Development.avif" className="card-img-top course-card-thumb" alt="Python course" />
+                        <img src={getPublicImageUrl('Web Development.avif')} className="card-img-top course-card-thumb" alt="Python course" />
                         <div className="position-absolute top-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style={{ zIndex: 2 }}>
                           <div className='d-flex gap-4 align-items-center justify-content-center'>
                             <span className="badge bg-warning text-dark px-2 py-1 rounded-pill fw-semibold align-items-center" style={{ fontSize: '12px', color: "#191970"}}>Featured</span>
@@ -304,7 +305,7 @@ function App() {
                         </p>
 
                         <div className='d-flex gap-2 align-items-center text-secondary'>
-                          <img src="/images/Mr. James Okoye.avif" className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
+                          <img src={getPublicImageUrl('Mr. James Okoye.avif')} className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
                           <span style={{fontSize: "14px"}}>Mr. James Okoye</span>
                           <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' className='bi bi-patch-check-fill text-primary' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                             <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
@@ -325,7 +326,7 @@ function App() {
 
                     <div hidden={!matchesCourseFilter({ featured: true })} className="card rounded-4 course-card-item flex-shrink-0 shadow-sm category-card" style={{ width: '19rem', cursor: "pointer",}}>
                       <div className="position-relative overflow-hidden rounded-top-4">
-                        <img src="/images/AI & Machine Learning.avif" className="card-img-top course-card-thumb" alt="Python course" />
+                        <img src={getPublicImageUrl('AI & Machine Learning.avif')} className="card-img-top course-card-thumb" alt="Python course" />
                         <div className="position-absolute top-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style={{ zIndex: 2 }}>
                           <div className='d-flex gap-4 align-items-center justify-content-center'>
                             <span className="badge bg-warning text-dark px-2 py-1 rounded-pill fw-semibold align-items-center" style={{ fontSize: '12px', color: "#191970"}}>Featured</span>
@@ -342,7 +343,7 @@ function App() {
                         </p>
 
                         <div className='d-flex gap-2 align-items-center text-secondary'>
-                          <img src="/images/Dr. Sarah Chen.avif" className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
+                          <img src={getPublicImageUrl('Dr. Sarah Chen.avif')} className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
                           <span style={{fontSize: "14px"}}>Dr, Sarah Chen</span>
                           <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' className='bi bi-patch-check-fill text-primary' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                             <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
@@ -363,7 +364,7 @@ function App() {
 
                     <div hidden={!matchesCourseFilter({ free: true, beginner: true })} className="card rounded-4 course-card-item flex-shrink-0 shadow-sm category-card" style={{ width: '19rem', cursor: "pointer",}}>
                       <div className="position-relative overflow-hidden rounded-top-4">
-                        <img src="/images/Game Development.avif" className="card-img-top course-card-thumb" alt="Python course" />
+                        <img src={getPublicImageUrl('Game Development.avif')} className="card-img-top course-card-thumb" alt="Python course" />
                         <div className="position-absolute top-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style={{ zIndex: 2 }}>
                           <div className='d-flex gap-4 align-items-center justify-content-center'>
                             <span className="fw-semibold d-inline-block rounded-pill" style={{fontSize: '11px',padding: '4px 10px',lineHeight: 1.2,textShadow: '0 1px 2px rgba(0,0,0,0.5)',backgroundColor: 'rgba(18, 196, 113, 0.25)', color: "#198754"}}>Beginner</span>
@@ -379,7 +380,7 @@ function App() {
                         </p>
 
                         <div className='d-flex gap-2 align-items-center text-secondary'>
-                          <img src="/images/Ms. Aisha Patel.avif" className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
+                          <img src={getPublicImageUrl('Ms. Aisha Patel.avif')} className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
                           <span style={{fontSize: "14px"}}>Ms. Aisha Patel</span>
                           <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' className='bi bi-patch-check-fill text-primary' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                             <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
@@ -401,7 +402,7 @@ function App() {
                   <div hidden={courseFilter === 'featured' || courseFilter === 'free'} className='my-4 d-flex gap-3 justify-content-center align-items-center homepage-course-grid'>
                     <div hidden={!matchesCourseFilter({})} className="card rounded-4 course-card-item flex-shrink-0 shadow-sm category-card" style={{ width: '19rem', cursor: "pointer",}}>
                       <div className="position-relative overflow-hidden rounded-top-4">
-                        <img src="/images/Data Science foe Teens.avif" className="card-img-top course-card-thumb" alt="Python course" />
+                        <img src={getPublicImageUrl('Data Science foe Teens.avif')} className="card-img-top course-card-thumb" alt="Python course" />
                         <div className="position-absolute top-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style={{ zIndex: 2 }}>
                           <div className='d-flex gap-4 align-items-center justify-content-center'>
                             <span className="fw-semibold d-inline-block rounded-pill" style={{fontSize: '11px',padding: '4px 10px',lineHeight: 1.2,textShadow: '0 1px 2px rgba(0,0,0,0.5)',backgroundColor: 'rgba(153, 144, 16, 0.48)', color: "#e5b521"}}>Intermediate</span>
@@ -417,7 +418,7 @@ function App() {
                         </p>
 
                         <div className='d-flex gap-2 align-items-center text-secondary'>
-                          <img src="/images/Prof. Micheal Torres.avif" className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
+                          <img src={getPublicImageUrl('Prof. Michael Torres.avif')} className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
                           <span style={{fontSize: "14px"}}>Prof. Michael Torres</span>
                           <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' className='bi bi-patch-check-fill text-primary' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                             <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
@@ -438,7 +439,7 @@ function App() {
 
                     <div hidden={!matchesCourseFilter({})} className="card rounded-4 course-card-item flex-shrink-0 shadow-sm category-card" style={{ width: '19rem', cursor: "pointer",}}>
                       <div className="position-relative overflow-hidden rounded-top-4">
-                        <img src="/images/Mobile Development.avif" className="card-img-top course-card-thumb" alt="Python course" />
+                        <img src={getPublicImageUrl('Mobile Development.avif')} className="card-img-top course-card-thumb" alt="Python course" />
                         <div className="position-absolute top-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style={{ zIndex: 2 }}>
                           <div className='d-flex gap-4 align-items-center justify-content-center'>
                             <span className="fw-semibold d-inline-block rounded-pill" style={{fontSize: '11px',padding: '4px 10px',lineHeight: 1.2,textShadow: '0 1px 2px rgba(0,0,0,0.5)',backgroundColor: 'rgba(173, 24, 24, 0.48)', color: "#f11d1d"}}>Advanced</span>
@@ -454,7 +455,7 @@ function App() {
                         </p>
 
                         <div className='d-flex gap-2 align-items-center text-secondary'>
-                          <img src="/images/Blessing Adeyemi.avif" className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
+                          <img src={getPublicImageUrl('Blessing Adeyemi.avif')} className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
                           <span style={{fontSize: "14px"}}>Ms,Lisa Wang</span>
                           <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' className='bi bi-patch-check-fill text-primary' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                             <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
@@ -475,7 +476,7 @@ function App() {
 
                     <div hidden={!matchesCourseFilter({ beginner: true })} className="card rounded-4 course-card-item flex-shrink-0 shadow-sm category-card" style={{ width: '19rem', cursor: "pointer",}}>
                       <div className="position-relative overflow-hidden rounded-top-4">
-                        <img src="/images/Scratch Programming.avif" className="card-img-top course-card-thumb" alt="Python course" />
+                        <img src={getPublicImageUrl('Scratch Programming.avif')} className="card-img-top course-card-thumb" alt="Python course" />
                         <div className="position-absolute top-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style={{ zIndex: 2 }}>
                           <div className='d-flex gap-4 align-items-center justify-content-center'>
                             <span className="fw-semibold d-inline-block rounded-pill" style={{fontSize: '11px',padding: '4px 10px',lineHeight: 1.2,textShadow: '0 1px 2px rgba(0,0,0,0.5)',backgroundColor: 'rgba(18, 196, 113, 0.25)', color: "#198754"}}>Beginner</span>
@@ -491,7 +492,7 @@ function App() {
                         </p>
 
                         <div className='d-flex gap-2 align-items-center text-secondary'>
-                          <img src="/images/Ms. Aisha Patel.avif" className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
+                          <img src={getPublicImageUrl('Ms. Aisha Patel.avif')} className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
                           <span style={{fontSize: "14px"}}>Ms, Aisha Patel</span>
                           <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' className='bi bi-patch-check-fill text-primary' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                             <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
@@ -512,7 +513,7 @@ function App() {
 
                     <div hidden={!matchesCourseFilter({ beginner: true })} className="card rounded-4 course-card-item flex-shrink-0 shadow-sm category-card" style={{ width: '19rem', cursor: "pointer",}}>
                       <div className="position-relative overflow-hidden rounded-top-4">
-                        <img src="/images/Cybersecurity.png" className="card-img-top course-card-thumb" alt="Python course" />
+                        <img src={getPublicImageUrl('Cybersecurity.png')} className="card-img-top course-card-thumb" alt="Python course" />
                         <div className="position-absolute top-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style={{ zIndex: 2 }}>
                           <div className='d-flex gap-4 align-items-center justify-content-center'>
                             <span className="fw-semibold d-inline-block rounded-pill" style={{fontSize: '11px',padding: '4px 10px',lineHeight: 1.2,textShadow: '0 1px 2px rgba(0,0,0,0.5)',backgroundColor: 'rgba(18, 196, 113, 0.25)', color: "#198754"}}>Beginner</span>
@@ -528,7 +529,7 @@ function App() {
                         </p>
 
                         <div className='d-flex gap-2 align-items-center text-secondary'>
-                          <img src="/images/Mr. Chukwudi Eze.avif" className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
+                          <img src={getPublicImageUrl('Mr. Chukwudi Eze.avif')} className="rounded-circle" alt="..." style={{ width: "25px", height: "25px", objectFit: "cover" }}/>
                           <span style={{fontSize: "14px"}}>Mr, Chukwudi Eze</span>
                           <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' className='bi bi-patch-check-fill text-primary' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                             <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
@@ -632,7 +633,7 @@ function App() {
                     <div className='p-3 flex-shrink-0 shadow-sm category-card rounded-4 border border-secondary-subtle' style={{cursor: "pointer", fontSize: "14px"}}>
                     <div className='d-flex gap-3'>
                       <div className='position-relative flex-shrink-0' style={{width: "60px", height: "60px"}}>
-                        <img src='/images/Dr. Sarah Chen.avif' className='d-block rounded-3 instructor-image' alt='Dr. Sarah Chen' style={{width: "60px", height: "60px"}}/>
+                        <img src={getPublicImageUrl('Dr. Sarah Chen.avif')} className='d-block rounded-3 instructor-image' alt='Dr. Sarah Chen' style={{width: "60px", height: "60px"}}/>
                         <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' className='bi bi-patch-check-fill position-absolute bottom-0 end-0 text-primary bg-white rounded-circle' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                           <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
                         </svg>
@@ -668,7 +669,7 @@ function App() {
                       <div className='p-3 flex-shrink-0 shadow-sm category-card rounded-4 border border-secondary-subtle' style={{cursor: "pointer", fontSize: "14px"}}>
                     <div className='d-flex gap-3'>
                       <div className='position-relative flex-shrink-0' style={{width: "60px", height: "60px"}}>
-                        <img src='/images/Mr. James Okoye.avif' className='d-block rounded-3 instructor-image' alt='Mr. James Okoye' style={{width: "60px", height: "60px"}}/>
+                        <img src={getPublicImageUrl('Mr. James Okoye.avif')} className='d-block rounded-3 instructor-image' alt='Mr. James Okoye' style={{width: "60px", height: "60px"}}/>
                         <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' className='bi bi-patch-check-fill position-absolute bottom-0 end-0 text-primary bg-white rounded-circle' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                           <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
                         </svg>
@@ -703,7 +704,7 @@ function App() {
                       <div className='p-3 flex-shrink-0 shadow-sm category-card rounded-4 border border-secondary-subtle' style={{cursor: "pointer", fontSize: "14px"}}>
                     <div className='d-flex gap-3'>
                       <div className='position-relative flex-shrink-0' style={{width: "60px", height: "60px"}}>
-                        <img src='/images/Ms. Aisha Patel.avif' className='d-block rounded-3 instructor-image' alt='Ms. Aisha Patel' style={{width: "60px", height: "60px"}}/>
+                        <img src={getPublicImageUrl('Ms. Aisha Patel.avif')} className='d-block rounded-3 instructor-image' alt='Ms. Aisha Patel' style={{width: "60px", height: "60px"}}/>
                         <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' className='bi bi-patch-check-fill position-absolute bottom-0 end-0 text-primary bg-white rounded-circle' viewBox='0 0 16 16' aria-label='Verified instructor' role='img' title='Verified instructor'>
                           <path d='M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708'/>
                         </svg>
@@ -746,7 +747,7 @@ function App() {
                     <p>⭐⭐⭐⭐⭐</p>
                     <span className='text-secondary'>"My daughter went from zero coding knowledge to building her first Python game in just 6 weeks. The AI Tutor feature is incredible — she gets personalised help 24/7."</span>
                     <div className='d-flex gap-3'>
-                      <img src='/images/Amara Okonkwo.avif' className='my-3 rounded-circle' alt='Dr. Sarah Chen' style={{width: "40px", height: "40px"}}/>
+                      <img src={getPublicImageUrl('Amara Okonkwo.avif')} className='my-3 rounded-circle' alt='Dr. Sarah Chen' style={{width: "40px", height: "40px"}}/>
                       <div className='d-flex flex-column align-items-start gap-0 my-3'>
                         <span className='d-block text-body-emphasis text-dark lh-1'>Amara Okonkwo</span>
                         <span className='d-block text-secondary lh-1 mt-1'>Parent of 2 TechStars</span>
@@ -757,7 +758,7 @@ function App() {
                     <p>⭐⭐⭐⭐⭐</p>
                     <span className='text-secondary'>"I've learned Python, web dev, and now I'm building my first mobile app. Zee Tech makes learning feel like a game — the achievements and AI tutor keep me motivated."</span>
                     <div className='d-flex gap-3'>
-                      <img src='/images/Kofi Mensah.avif' className='my-3 rounded-circle' alt='Dr. Sarah Chen' style={{width: "40px", height: "40px"}}/>
+                      <img src={getPublicImageUrl('Kofi Mensah.avif')} className='my-3 rounded-circle' alt='Dr. Sarah Chen' style={{width: "40px", height: "40px"}}/>
                       <div className='d-flex flex-column align-items-start gap-0 my-3'>
                         <span className='d-block text-body-emphasis text-dark lh-1'>Kofi Mensah</span>
                         <span className='d-block text-secondary lh-1 mt-1'>TechStar, Age 15</span>
@@ -768,7 +769,7 @@ function App() {
                     <p>⭐⭐⭐⭐⭐</p>
                     <span className='text-secondary'>"The platform's tools are exceptional. Course creation is intuitive, student analytics are deep, and the booking system for private sessions is seamless."</span>
                     <div className='d-flex gap-3'>
-                      <img src='/images/Dr. Sarah Chen.avif' className='my-3 rounded-circle' alt='Dr. Sarah Chen' style={{width: "40px", height: "40px"}}/>
+                      <img src={getPublicImageUrl('Dr. Sarah Chen.avif')} className='my-3 rounded-circle' alt='Dr. Sarah Chen' style={{width: "40px", height: "40px"}}/>
                       <div className='d-flex flex-column align-items-start gap-0 my-3'>
                         <span className='d-block text-body-emphasis text-dark lh-1'>Dr. Sarah Chen</span>
                         <span className='d-block text-secondary lh-1 mt-1'>Verified Instructor</span>
@@ -779,7 +780,7 @@ function App() {
                     <p>⭐⭐⭐⭐⭐</p>
                     <span className='text-secondary'>"Being able to track my children's progress in real-time gives me real peace of mind. The progress reports are detailed and the instructors are world-class."</span>
                     <div className='d-flex gap-3'>
-                      <img src='/images/Blessing Adeyemi.avif' className='my-3 rounded-circle' alt='Dr. Sarah Chen' style={{width: "40px", height: "40px"}}/>
+                      <img src={getPublicImageUrl('Blessing Adeyemi.avif')} className='my-3 rounded-circle' alt='Dr. Sarah Chen' style={{width: "40px", height: "40px"}}/>
                       <div className='d-flex flex-column align-items-start gap-0 my-3'>
                         <span className='d-block text-body-emphasis text-dark lh-1'>Blessing Adeyemi</span>
                         <span className='d-block text-secondary lh-1 mt-1'>Parent</span>

@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import getPublicImageUrl from './publicImage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
@@ -15,7 +16,7 @@ const instructors = [
     skills: ['Python', 'Machine Learning', 'Data Science', 'AI'],
     rating: '4.9', students: '12,400', courses: '8', price: '$85/hr',
     schedule: 'Mon–Fri · 9 AM–6 PM',
-    image: '/images/Dr. Sarah Chen.avif',
+    image: getPublicImageUrl('Dr. Sarah Chen.avif'),
   },
   {
     id: 2,
@@ -27,7 +28,7 @@ const instructors = [
     skills: ['Web Development', 'JavaScript', 'React', 'Node.js'],
     rating: '4.8', students: '9,800', courses: '6', price: '$70/hr',
     schedule: 'Mon–Sat · 10 AM–8 PM',
-    image: '/images/Mr. James Okoye.avif',
+    image: getPublicImageUrl('Mr. James Okoye.avif'),
   },
   {
     id: 3,
@@ -39,7 +40,7 @@ const instructors = [
     skills: ['Game Development', 'Unity', 'C#', 'Scratch'],
     rating: '4.7', students: '6,200', courses: '5', price: '$65/hr',
     schedule: 'Weekends · 10 AM–5 PM',
-    image: '/images/Ms. Aisha Patel.avif',
+    image: getPublicImageUrl('Ms. Aisha Patel.avif'),
   },
   {
     id: 4,
@@ -51,7 +52,7 @@ const instructors = [
     skills: ['Data Science', 'Python', 'Statistics', 'Visualization'],
     rating: '4.9', students: '7,800', courses: '7', price: '$95/hr',
     schedule: 'Tue–Thu · 2 PM–7 PM',
-    image: '/images/Prof. Michael Torres.avif',
+    image: getPublicImageUrl('Prof. Michael Torres.avif'),
   },
   {
     id: 5,
@@ -63,7 +64,7 @@ const instructors = [
     skills: ['Mobile Development', 'iOS', 'Android', 'React Native'],
     rating: '4.6', students: '4,100', courses: '4', price: '$75/hr',
     schedule: 'Mon–Wed–Fri · 11 AM–7 PM',
-    image: '/images/Blessing Adeyemi.avif',
+    image: getPublicImageUrl('Blessing Adeyemi.avif'),
   },
   {
     id: 6,
@@ -75,7 +76,7 @@ const instructors = [
     skills: ['Cybersecurity', 'Networking', 'Ethical Hacking', 'Linux'],
     rating: '4.8', students: '5,600', courses: '5', price: '$90/hr',
     schedule: 'Mon–Fri · 6 PM–10 PM',
-    image: '/images/Mr. Chukwudi Eze.avif',
+    image: getPublicImageUrl('Mr. Chukwudi Eze.avif'),
   },
 ];
 
